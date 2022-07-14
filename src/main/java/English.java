@@ -3,26 +3,55 @@ import java.util.HashMap;
 public class English extends Language {
 
     int wordCount;
-    HashMap<Integer, String> cardinalNums = new HashMap<>();
-    String [] degreeNames = {"thousand", "million", "billion", "trillion", "quadrillion"};
 
+    int wordLoopSize;
+    HashMap<Integer, String> cardinalNums = new HashMap<>();
+    HashMap<Integer, String> ordinalNums = new HashMap<>();
+    String [] degreeNames = {"thousand", "million", "billion", "trillion", "quadrillion"};
+    String [] conjunctions = {" and", "-"};
+    String [] endings = {"th", "teen", "ieth"};
     public English() {
-        this.wordCount = 26;
+        this.wordCount = 21;
+        this.wordLoopSize = (wordCount - 1) / 5;
         this.cardinalNums = cardinalNums;
+        this.ordinalNums = ordinalNums;
         this.degreeNames = degreeNames;
+        this.conjunctions = conjunctions;
+        this.endings = endings;
         fillingMap();
     }
 
+    @Override
     public HashMap<Integer, String> getCardinalNums() {
         return cardinalNums;
     }
-
+    @Override
+    public HashMap<Integer, String> getOrdinalNums() {
+        return ordinalNums;
+    }
+    @Override
     public String[] getDegreeNames() {
         return degreeNames;
     }
-
+    @Override
     public int getWordCount() {
         return wordCount;
+    }
+    @Override
+    public int getWordLoopSize() {
+        return wordLoopSize;
+    }
+    @Override
+    public String[] getArticles() {
+        return super.getArticles();
+    }
+    @Override
+    public String[] getConjunctions() {
+        return conjunctions;
+    }
+    @Override
+    public String[] getEndings() {
+        return endings;
     }
 
     public void fillingMap() {
@@ -54,5 +83,34 @@ public class English extends Language {
         cardinalNums.put(80, "eighty");
         cardinalNums.put(90, "ninety");
         cardinalNums.put(100, "hundred");
+
+        ordinalNums.put(1, "first");
+        ordinalNums.put(2, "second");
+        ordinalNums.put(3, "third");
+        ordinalNums.put(4, "fourth");
+        ordinalNums.put(5, "fifth");
+        ordinalNums.put(6, "sixth");
+        ordinalNums.put(7, "seventh");
+        ordinalNums.put(8, "eighth");
+        ordinalNums.put(9, "ninth");
+        ordinalNums.put(10, "tenth");
+        ordinalNums.put(11, "eleventh");
+        ordinalNums.put(12, "twelfth");
+        ordinalNums.put(13, "thirteenth");
+        ordinalNums.put(14, "fourteenth");
+        ordinalNums.put(15, "fifteenth");
+        ordinalNums.put(16, "sixteenth");
+        ordinalNums.put(17, "seventeenth");
+        ordinalNums.put(18, "eighteenth");
+        ordinalNums.put(19, "nineteenth");
+        ordinalNums.put(20, "twentieth");
+        ordinalNums.put(30, "thirtieth");
+        ordinalNums.put(40, "fortieth");
+        ordinalNums.put(50, "fiftieth");
+        ordinalNums.put(60, "sixtieth");
+        ordinalNums.put(70, "seventieth");
+        ordinalNums.put(80, "eightieth");
+        ordinalNums.put(90, "ninetieth");
+        ordinalNums.put(100, "hundredth");
     }
 }
