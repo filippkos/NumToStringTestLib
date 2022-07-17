@@ -4,12 +4,15 @@ public class Deutch extends Language{
 
     int wordCount;
     int wordLoopSize;
+    boolean twoWordHundreds;
     HashMap<Integer, String> cardinalNums = new HashMap<>();
     HashMap<Integer, String> ordinalNums = new HashMap<>();
     String [] degreeNames = {"tausend", "million", "milliarde", "billion", "billiarde"};
-    String [] articles = {"der", "die", "das"};
-    String [] conjunctions = {"", ""};
-    String [] endings = {"ste", "", ""};
+
+    String [] feminineNums = {"", ""};
+    String [] articles = {"der ", "die ", "das "};
+    String [] conjunctions = {" un", ""};
+    String [] endings = {"ste", "", "", "", "", ""};
     public Deutch() {
         this.wordCount = 16;
         this.wordLoopSize = (wordCount - 1) / 5;
@@ -19,6 +22,7 @@ public class Deutch extends Language{
         this.articles = articles;
         this.conjunctions = conjunctions;
         this.endings = endings;
+        this.twoWordHundreds = true;
         fillingMap();
     }
 
@@ -53,6 +57,14 @@ public class Deutch extends Language{
     @Override
     public String[] getEndings() {
         return endings;
+    }
+    @Override
+    public String[] getFeminineNums() {
+        return feminineNums;
+    }
+    @Override
+    public boolean isTwoWordHundreds() {
+        return twoWordHundreds;
     }
 
     public void fillingMap() {

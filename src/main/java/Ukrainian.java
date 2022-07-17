@@ -5,14 +5,17 @@ public class Ukrainian extends Language {
     int wordCount;
 
     int wordLoopSize;
+    boolean twoWordHundreds;
     HashMap<Integer, String> cardinalNums = new HashMap<>();
     HashMap<Integer, String> ordinalNums = new HashMap<>();
-    String [] degreeNames = {"тис€ча", "м≥льон", "м≥ль€рд", "тр≥л≥он", "квадр≥л≥он"};
+    HashMap<Integer, String> ordinalComponentNums = new HashMap<>();
+    String [] degreeNames = {"тис€ч", "м≥льон", "м≥ль€рд", "тр≥л≥он", "квадр≥л≥он"};
+    String [] feminineNums = {"одна", "дв≥"};
     String [] articles = {"", ""};
     String [] conjunctions = {"", ""};
-    String [] endings = {"ий", "надц€тий", "а", ""};
+    String [] endings = {"ний", "a", "≥", "а", "≥в", "", ""};
     public Ukrainian() {
-        this.wordCount = 16;
+        this.wordCount = 21;
         this.wordLoopSize = (wordCount - 1) / 5;
         this.cardinalNums = cardinalNums;
         this.ordinalNums = ordinalNums;
@@ -20,6 +23,7 @@ public class Ukrainian extends Language {
         this.articles = articles;
         this.conjunctions = conjunctions;
         this.endings = endings;
+        this.twoWordHundreds = false;
         fillingMap();
     }
 
@@ -54,6 +58,18 @@ public class Ukrainian extends Language {
     @Override
     public String[] getEndings() {
         return endings;
+    }
+    @Override
+    public HashMap<Integer, String> getOrdinalComponentNums() {
+        return ordinalComponentNums;
+    }
+    @Override
+    public String[] getFeminineNums() {
+        return feminineNums;
+    }
+    @Override
+    public boolean isTwoWordHundreds() {
+        return twoWordHundreds;
     }
 
     public void fillingMap() {
@@ -123,14 +139,34 @@ public class Ukrainian extends Language {
         ordinalNums.put(80, "в≥с≥мдес€тий");
         ordinalNums.put(90, "дев'€ностий");
         ordinalNums.put(100, "сотий");
-        ordinalNums.put(200, "двохсотий");
-        ordinalNums.put(300, "трьохсотий");
-        ordinalNums.put(400, "чотирьохсотий");
-        ordinalNums.put(500, "п'€тисотий");
-        ordinalNums.put(600, "шестисотий");
-        ordinalNums.put(700, "с≥мсотий");
-        ordinalNums.put(800, "восьмисотий");
-        ordinalNums.put(900, "дев'€тисотий");
+
+        ordinalComponentNums.put(1, "одно");
+        ordinalComponentNums.put(2, "двох");
+        ordinalComponentNums.put(3, "трьох");
+        ordinalComponentNums.put(4, "чотирьох");
+        ordinalComponentNums.put(5, "п'€ти");
+        ordinalComponentNums.put(6, "шести");
+        ordinalComponentNums.put(7, "семи");
+        ordinalComponentNums.put(8, "восьми");
+        ordinalComponentNums.put(9, "дев'€ти");
+        ordinalComponentNums.put(10, "дес€ти");
+        ordinalComponentNums.put(11, "одинадц€ти");
+        ordinalComponentNums.put(12, "дванадц€ти");
+        ordinalComponentNums.put(13, "тринадц€ти");
+        ordinalComponentNums.put(14, "чотирнадц€ти");
+        ordinalComponentNums.put(15, "п'€тнадц€ти");
+        ordinalComponentNums.put(16, "ш≥стнадц€ти");
+        ordinalComponentNums.put(17, "с≥мнадц€ти");
+        ordinalComponentNums.put(18, "в≥с≥мнадц€ти");
+        ordinalComponentNums.put(19, "дев'€тнадц€ти");
+        ordinalComponentNums.put(20, "двадц€ти");
+        ordinalComponentNums.put(30, "тридц€ти");
+        ordinalComponentNums.put(40, "сорока");
+        ordinalComponentNums.put(50, "п€тидес€ти");
+        ordinalComponentNums.put(60, "шестидес€ти");
+        ordinalComponentNums.put(70, "семидес€ти");
+        ordinalComponentNums.put(80, "восьмидес€ти");
+        ordinalComponentNums.put(90, "дев'€носто");
 
     }
 }

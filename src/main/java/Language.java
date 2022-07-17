@@ -3,11 +3,13 @@ import java.util.HashMap;
 public class Language {
     int wordCount;
     int wordLoopSize;
+    boolean twoWordHundreds;
 
     HashMap<Integer, String> cardinalNums;
     HashMap<Integer, String> ordinalNums;
+    HashMap<Integer, String> ordinalComponentNums = new HashMap<>();
     String [] degreeNames;
-
+    String [] feminineNums;
     String [] articles;
     String [] conjunctions;
     String [] endings;
@@ -42,5 +44,17 @@ public class Language {
 
     public String[] getEndings() {
         return endings;
+    }
+
+    public HashMap<Integer, String> getOrdinalComponentNums() {
+        return ordinalComponentNums;
+    }
+
+    public String[] getFeminineNums() {
+        return feminineNums;
+    }
+
+    public boolean isTwoWordHundreds() {
+        return twoWordHundreds;
     }
 }
