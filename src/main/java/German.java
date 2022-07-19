@@ -1,28 +1,23 @@
 import java.util.HashMap;
 
-public class Deutch extends Language{
+public class German extends Language{
 
     int wordCount;
     int wordLoopSize;
     boolean twoWordHundreds;
+    boolean doubleDigitReverse;
     HashMap<Integer, String> cardinalNums = new HashMap<>();
     HashMap<Integer, String> ordinalNums = new HashMap<>();
-    String [] degreeNames = {"tausend", "million", "milliarde", "billion", "billiarde"};
-
+    String [] degreeNames = {"Tausend", "Million", "Milliarde", "Billion", "Billiarde"};
     String [] feminineNums = {"", ""};
     String [] articles = {"der ", "die ", "das "};
-    String [] conjunctions = {" un", ""};
+    String [] conjunctions = {"und", ""};
     String [] endings = {"ste", "", "", "", "", ""};
-    public Deutch() {
-        this.wordCount = 16;
+    public German() {
+        this.wordCount = 21;
         this.wordLoopSize = (wordCount - 1) / 5;
-        this.cardinalNums = cardinalNums;
-        this.ordinalNums = ordinalNums;
-        this.degreeNames = degreeNames;
-        this.articles = articles;
-        this.conjunctions = conjunctions;
-        this.endings = endings;
         this.twoWordHundreds = true;
+        this.doubleDigitReverse = true;
         fillingMap();
     }
 
@@ -66,9 +61,13 @@ public class Deutch extends Language{
     public boolean isTwoWordHundreds() {
         return twoWordHundreds;
     }
+    @Override
+    public boolean isDoubleDigitReverse() {
+        return doubleDigitReverse;
+    }
 
     public void fillingMap() {
-        cardinalNums.put(1, "eins");
+        cardinalNums.put(1, "ein");
         cardinalNums.put(2, "zwei");
         cardinalNums.put(3, "drei");
         cardinalNums.put(4, "vier");
