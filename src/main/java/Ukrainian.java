@@ -6,19 +6,21 @@ public class Ukrainian extends Language {
     int wordLoopSize;
     boolean twoWordHundreds;
     boolean doubleDigitReverse;
+    boolean spacesBetweenWords;
     HashMap<Integer, String> cardinalNums = new HashMap<>();
     HashMap<Integer, String> ordinalNums = new HashMap<>();
     HashMap<Integer, String> ordinalComponentNums = new HashMap<>();
     String [] degreeNames = {"тисяч", "мільон", "мільярд", "тріліон", "квадріліон"};
-    String [] feminineNums = {"одна", "дві"};
-    String [] articles = {"", ""};
-    String [] conjunctions = {"", ""};
+    String [] feminineNums = {"одна ", "дві "};
+    String [] articles = {""};
+    String [] conjunctions = {"", "", "", ""};
     String [] endings = {"ний", "a", "і", "а", "ів", "", ""};
     public Ukrainian() {
         this.wordCount = 21;
         this.wordLoopSize = (wordCount - 1) / 5;
         this.twoWordHundreds = false;
         this.doubleDigitReverse = false;
+        this.spacesBetweenWords = true;
         fillingMap();
     }
     @Override
@@ -68,6 +70,10 @@ public class Ukrainian extends Language {
     @Override
     public boolean isDoubleDigitReverse() {
         return doubleDigitReverse;
+    }
+    @Override
+    public boolean isSpacesBetweenWords() {
+        return spacesBetweenWords;
     }
 
     public void fillingMap() {

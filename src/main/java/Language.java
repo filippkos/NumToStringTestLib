@@ -5,6 +5,7 @@ public class Language {
     int wordLoopSize;
     boolean twoWordHundreds;
     boolean doubleDigitReverse;
+    boolean spacesBetweenWords;
 
     HashMap<Integer, String> cardinalNums;
     HashMap<Integer, String> ordinalNums;
@@ -61,5 +62,9 @@ public class Language {
 
     public boolean isDoubleDigitReverse() {
         return doubleDigitReverse;
+    }
+
+    public boolean isSpacesBetweenWords() {
+        return spacesBetweenWords;
     }
 }

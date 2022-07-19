@@ -6,18 +6,20 @@ public class German extends Language{
     int wordLoopSize;
     boolean twoWordHundreds;
     boolean doubleDigitReverse;
+    boolean spacesBetweenWords;
     HashMap<Integer, String> cardinalNums = new HashMap<>();
     HashMap<Integer, String> ordinalNums = new HashMap<>();
     String [] degreeNames = {"Tausend", "Million", "Milliarde", "Billion", "Billiarde"};
     String [] feminineNums = {"", ""};
-    String [] articles = {"der ", "die ", "das "};
-    String [] conjunctions = {"und", ""};
+    String [] articles = {"der"};
+    String [] conjunctions = {"und", "", "", " "};
     String [] endings = {"ste", "", "", "", "", ""};
     public German() {
         this.wordCount = 21;
         this.wordLoopSize = (wordCount - 1) / 5;
         this.twoWordHundreds = true;
         this.doubleDigitReverse = true;
+        this.spacesBetweenWords = false;
         fillingMap();
     }
 
@@ -65,31 +67,35 @@ public class German extends Language{
     public boolean isDoubleDigitReverse() {
         return doubleDigitReverse;
     }
+    @Override
+    public boolean isSpacesBetweenWords() {
+        return spacesBetweenWords;
+    }
 
     public void fillingMap() {
         cardinalNums.put(1, "ein");
         cardinalNums.put(2, "zwei");
         cardinalNums.put(3, "drei");
         cardinalNums.put(4, "vier");
-        cardinalNums.put(5, "f?nf");
+        cardinalNums.put(5, "fünf");
         cardinalNums.put(6, "sechs");
         cardinalNums.put(7, "sieben");
         cardinalNums.put(8, "acht");
         cardinalNums.put(9, "neun");
         cardinalNums.put(10, "zehn");
         cardinalNums.put(11, "elf");
-        cardinalNums.put(12, "zw?lf");
+        cardinalNums.put(12, "zwölf");
         cardinalNums.put(13, "dreizehn");
         cardinalNums.put(14, "vierzehn");
-        cardinalNums.put(15, "f?nfzehn");
+        cardinalNums.put(15, "fünfzehn");
         cardinalNums.put(16, "sechzehn");
         cardinalNums.put(17, "siebzehn");
         cardinalNums.put(18, "achtzehn");
         cardinalNums.put(19, "neunzehn");
         cardinalNums.put(20, "zwanzig");
-        cardinalNums.put(30, "drei?ig");
+        cardinalNums.put(30, "dreißig");
         cardinalNums.put(40, "vierzig");
-        cardinalNums.put(50, "f?nfzig");
+        cardinalNums.put(50, "fünfzig");
         cardinalNums.put(60, "sechzig");
         cardinalNums.put(70, "siebzig");
         cardinalNums.put(80, "achtzig");
@@ -100,25 +106,25 @@ public class German extends Language{
         ordinalNums.put(2, "zweite");
         ordinalNums.put(3, "dritte");
         ordinalNums.put(4, "vierte");
-        ordinalNums.put(5, "f?nfte");
+        ordinalNums.put(5, "fünfte");
         ordinalNums.put(6, "sechste");
         ordinalNums.put(7, "sieb(en)te");
         ordinalNums.put(8, "achte");
         ordinalNums.put(9, "neunte");
         ordinalNums.put(10, "zehnte");
         ordinalNums.put(11, "elfte");
-        ordinalNums.put(12, "zw?lfte");
+        ordinalNums.put(12, "zwölfte");
         ordinalNums.put(13, "dreizehnte");
         ordinalNums.put(14, "vierzehnte");
-        ordinalNums.put(15, "f?nfzehnte");
+        ordinalNums.put(15, "fünfzehnte");
         ordinalNums.put(16, "sechzehnte");
         ordinalNums.put(17, "siebzehnte");
         ordinalNums.put(18, "achtzehnte");
         ordinalNums.put(19, "neunzehnte");
         ordinalNums.put(20, "zwanzigste");
-        ordinalNums.put(30, "drei?igste");
+        ordinalNums.put(30, "dreißigste");
         ordinalNums.put(40, "vierzigste");
-        ordinalNums.put(50, "f?nfzigste");
+        ordinalNums.put(50, "fünfzigste");
         ordinalNums.put(60, "sechzigste");
         ordinalNums.put(70, "siebzigste");
         ordinalNums.put(80, "achtzigste");

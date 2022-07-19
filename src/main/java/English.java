@@ -7,19 +7,20 @@ public class English extends Language {
     int wordLoopSize;
     boolean twoWordHundreds;
     boolean doubleDigitReverse;
+    boolean spacesBetweenWords;
     HashMap<Integer, String> cardinalNums = new HashMap<>();
     HashMap<Integer, String> ordinalNums = new HashMap<>();
     String [] degreeNames = {"thousand", "million", "billion", "trillion", "quadrillion"};
     String [] feminineNums = {"", ""};
-
     String [] articles = {"the"};
-    String [] conjunctions = {" and", "-"};
+    String [] conjunctions = {"and ", "-", " ", " "};
     String [] endings = {"th", "", "", "", "", ""};
     public English() {
         this.wordCount = 21;
         this.wordLoopSize = (wordCount - 1) / 5;
         this.twoWordHundreds = true;
         this.doubleDigitReverse = false;
+        this.spacesBetweenWords = false;
         fillingMap();
     }
 
@@ -45,7 +46,7 @@ public class English extends Language {
     }
     @Override
     public String[] getArticles() {
-        return super.getArticles();
+        return articles;
     }
     @Override
     public String[] getConjunctions() {
@@ -66,6 +67,10 @@ public class English extends Language {
     @Override
     public boolean isDoubleDigitReverse() {
         return doubleDigitReverse;
+    }
+    @Override
+    public boolean isSpacesBetweenWords() {
+        return spacesBetweenWords;
     }
 
     public void fillingMap() {

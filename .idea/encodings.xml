@@ -3,6 +3,8 @@
   <component name="Encoding">
     <file url="file://$PROJECT_DIR$/src/main/java/English.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/java/German.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/Language.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/Main.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/java/Ukrainian.java" charset="UTF-8" />
     <file url="PROJECT" charset="windows-1251" />
   </component>
