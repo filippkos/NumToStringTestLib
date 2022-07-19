@@ -4,6 +4,7 @@ public class Language {
     int wordCount;
     int wordLoopSize;
     boolean twoWordHundreds;
+    boolean doubleDigitReverse;
 
     HashMap<Integer, String> cardinalNums;
     HashMap<Integer, String> ordinalNums;
@@ -56,5 +57,9 @@ public class Language {
 
     public boolean isTwoWordHundreds() {
         return twoWordHundreds;
+    }
+
+    public boolean isDoubleDigitReverse() {
+        return doubleDigitReverse;
     }
 }

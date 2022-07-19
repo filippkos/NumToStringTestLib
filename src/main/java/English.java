@@ -6,22 +6,20 @@ public class English extends Language {
 
     int wordLoopSize;
     boolean twoWordHundreds;
+    boolean doubleDigitReverse;
     HashMap<Integer, String> cardinalNums = new HashMap<>();
     HashMap<Integer, String> ordinalNums = new HashMap<>();
     String [] degreeNames = {"thousand", "million", "billion", "trillion", "quadrillion"};
-
     String [] feminineNums = {"", ""};
+
+    String [] articles = {"the"};
     String [] conjunctions = {" and", "-"};
     String [] endings = {"th", "", "", "", "", ""};
     public English() {
         this.wordCount = 21;
         this.wordLoopSize = (wordCount - 1) / 5;
-        this.cardinalNums = cardinalNums;
-        this.ordinalNums = ordinalNums;
-        this.degreeNames = degreeNames;
-        this.conjunctions = conjunctions;
-        this.endings = endings;
         this.twoWordHundreds = true;
+        this.doubleDigitReverse = false;
         fillingMap();
     }
 
@@ -64,6 +62,10 @@ public class English extends Language {
     @Override
     public boolean isTwoWordHundreds() {
         return twoWordHundreds;
+    }
+    @Override
+    public boolean isDoubleDigitReverse() {
+        return doubleDigitReverse;
     }
 
     public void fillingMap() {
