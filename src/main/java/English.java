@@ -3,7 +3,6 @@ import java.util.HashMap;
 public class English extends Language {
 
     int wordCount;
-
     int wordLoopSize;
     boolean twoWordHundreds;
     boolean doubleDigitReverse;

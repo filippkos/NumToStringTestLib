@@ -6,20 +6,25 @@ public class Main {
         callConsole();
     }
 
+    /**
+     * This method calls the console for the user to enter a number.
+     */
     private static void callConsole() {
-        Long[] nums = {1L, 11L, 21L, 50L, 101L, 202L, 134L, 555L, 1000L, 1001L, 12101L, 21000L, 21105L, 22105L, 25105L, 115103L, 234205L, 1000000L, 102000000L, 121000000L};
-
-        for (Long num : nums) {
-            Scanner in = new Scanner(System.in);
-            //System.out.print("Input a number: ");
-            Long inputValue = num;//in.nextLong();
-            System.out.printf("Your number is: " + transformLongToOrdinalString(inputValue, new English()));
-            System.out.printf("Your number is: " + transformLongToOrdinalString(inputValue, new Ukrainian()));
-            System.out.printf("Your number is: " + transformLongToOrdinalString(inputValue, new German()) + "\n");
-            in.close();
-        }
+        Scanner in = new Scanner(System.in);
+        System.out.print("Input a number: ");
+        Long inputValue = in.nextLong();
+        System.out.printf("Your number is: " + transformLongToOrdinalString(inputValue, new English()));
+        System.out.printf("Your number is: " + transformLongToOrdinalString(inputValue, new Ukrainian()));
+        System.out.printf("Your number is: " + transformLongToOrdinalString(inputValue, new German()));
+        in.close();
     }
 
+    /**
+     * This method transforms input Long number into ordinal strings.
+     * @param inputValue input Long number.
+     * @param language language class.
+     * @return array of int digits.
+     */
     private static String transformLongToOrdinalString(Long inputValue, Language language) {
 
         int nullCounter = 0;
@@ -50,10 +55,11 @@ public class Main {
         if (language.isSpacesBetweenWords()) {
             spacer = " ";
         }
+
+        //transformation logic
         for (int i = digits.length - 1; i > -1; j--) {
 
-
-            /** first number =======================================================*/
+            /* first number */
             if (digits[i] != 0) {
                 //general algorithm
                 if (i != digits.length - 1)
@@ -95,7 +101,7 @@ public class Main {
 
             if (i == -1)
                 break;
-            /** second number =======================================================*/
+            /* second number */
             if (digits[i] != 0) {
                 //general algorithm
                 if (digits[i] == 1) {
@@ -139,10 +145,9 @@ public class Main {
             i--;
             j--;
 
-
             if (i == -1)
                 break;
-            /** third number =======================================================*/
+            /* third number */
             if (digits[i] != 0) {
                 //general algorithm
                 if (!language.isTwoWordHundreds()) {
@@ -177,40 +182,16 @@ public class Main {
             i--;
             j--;
 
-
             if (i == -1)
                 break;
-            /** next trinity check =======================================================*/
+            /* next three digits check */
             degreeDeclension = false;
             for (int k = 0; k < 3; k++) {
                 if (i - k >= 0 && digits[i - k] != 0) {
                     degreeNamesNum = ((language.getWordCount() - j) / language.getWordLoopSize()) - 1;
                     words[j] = degreeNames[degreeNamesNum];
-                    //degree name handling
-                    if ((degreeNamesNum + 1) == nullCounter / 3) {
-                        words[j] = degreeNames[degreeNamesNum] + language.getEndings()[0];
-                        degreeDeclension = true;
-                    } else {
-                        if (digits.length > 4 && digits[i - 1] == 1) {
-                            words[j] += language.getEndings()[5];
-                        } else {
-                            if (i == digits.length - 4 && digits[i] == 1)
-                                words[j] += language.getEndings()[1];
-                            if (i == digits.length - 4 && digits[i] >= 2 && digits[i] <= 4)
-                                words[j] += language.getEndings()[2];
-                        }
-                        if (i < digits.length - 4 && digits[i] >= 2 && digits[i] <= 4)
-                            words[j] += language.getEndings()[3];
-                        if (i < digits.length - 4 && digits[i] >= 5)
-                            words[j] += language.getEndings()[4];
-                    }
-                    words[j] += " ";
-                    //thousands conjunctions
-                    if (digits[i + 1] == 0 && (digits[i + 2] != 0 || digits[i + 3] != 0)) {
-                        words[j] += language.getConjunctions()[0];
-                    }
-                    if (i != 0)
-                        words[j] = language.getConjunctions()[3] + words[j];
+                    degreeDeclension = degreeNameHandling(i, j, digits, words, language, degreeNamesNum, nullCounter, degreeDeclension);
+
                     break;
                 }
             }
@@ -218,14 +199,64 @@ public class Main {
         return stringFormation(words, language);
     }
 
-    private static int[] stringArrayToIntArray(String[] strDigits) {
-        int[] numbers = new int[strDigits.length];
-        for (int i = 0; i < strDigits.length; i++) {
-            numbers[i] = Integer.parseInt(strDigits[i]);
+    /**
+     * This method handles the nominal form of the powers of a thousand.
+     * @param i digits iterator.
+     * @param j words iterator.
+     * @param digits array of digits.
+     * @param words array of words.
+     * @param language language class.
+     * @param nullCounter counter of null digits before current digit.
+     * @return a boolean value indicating whether to change the word form of the next 3 digits.
+     */
+    private static boolean degreeNameHandling(int i, int j, int[]digits, String[]words, Language language, int degreeNamesNum, int nullCounter, boolean degreeDeclension) {
+        String [] degreeNames = language.getDegreeNames();
+        if ((degreeNamesNum + 1) == nullCounter / 3) {
+            words[j] = degreeNames[degreeNamesNum] + language.getEndings()[0];
+            degreeDeclension = true;
+        } else {
+            if (digits.length > 4 && digits[i - 1] == 1) {
+                words[j] += language.getEndings()[5];
+            } else {
+                if (i == digits.length - 4 && digits[i] == 1)
+                    words[j] += language.getEndings()[1];
+                if (i == digits.length - 4 && digits[i] >= 2 && digits[i] <= 4)
+                    words[j] += language.getEndings()[2];
+            }
+            if (i < digits.length - 4 && digits[i] >= 2 && digits[i] <= 4)
+                words[j] += language.getEndings()[3];
+            if (i < digits.length - 4 && digits[i] >= 5)
+                words[j] += language.getEndings()[4];
         }
-        return numbers;
+        words[j] += " ";
+        //thousands conjunctions
+        if (digits[i + 1] == 0 && (digits[i + 2] != 0 || digits[i + 3] != 0)) {
+            words[j] += language.getConjunctions()[0];
+        }
+        if (i != 0)
+            words[j] = language.getConjunctions()[3] + words[j];
+        return degreeDeclension;
     }
 
+    /**
+     * This method converts string array to int array.
+     * @param strDigits array of string digits.
+     * @return array of int digits.
+     */
+    private static int[] stringArrayToIntArray(String[] strDigits) {
+        int[] digits = new int[strDigits.length];
+        for (int i = 0; i < strDigits.length; i++) {
+            digits[i] = Integer.parseInt(strDigits[i]);
+        }
+        return digits;
+    }
+
+    /**
+     * This method creates a ready-made string from an array of words.
+     * @param words array of words
+     * @param language language class.
+     * @return string with ordinal number.
+     */
     private static String stringFormation(String[] words, Language language) {
         //removing null elements
         List<String> wordsWithoutNull = new ArrayList<>();
@@ -233,7 +264,6 @@ public class Main {
             if (word != null)
                 wordsWithoutNull.add(word);
         }
-
         //string creation
         String result = "";
         for (String word : wordsWithoutNull) {

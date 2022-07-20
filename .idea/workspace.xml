@@ -1,14 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="cb4c042d-14b9-488b-9db4-efe009f3c4d8" name="Changes" comment="+ improving logics&#10;+ console call decomposed&#10;+ German is ready">
+    <list default="true" id="cb4c042d-14b9-488b-9db4-efe009f3c4d8" name="Changes" comment="+ improving logics&#10;+ decomposed main class">
       <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/English.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/English.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/German.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/German.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Language.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Language.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Ukrainian.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Ukrainian.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -37,17 +36,17 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "File.Encoding"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;File.Encoding&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Main" />
@@ -85,7 +84,8 @@
       <workItem from="1657966438231" duration="14880000" />
       <workItem from="1658052344329" duration="9855000" />
       <workItem from="1658135349720" duration="14858000" />
-      <workItem from="1658215560512" duration="28908000" />
+      <workItem from="1658215560512" duration="29584000" />
+      <workItem from="1658294785361" duration="5273000" />
     </task>
     <task id="LOCAL-00001" summary="First version">
       <created>1657706169862</created>
@@ -122,7 +122,14 @@
       <option name="project" value="LOCAL" />
       <updated>1658232367875</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="+ improving logics&#10;+ decomposed main class">
+      <created>1658265837161</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1658265837161</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -145,6 +152,7 @@
     <MESSAGE value="+ filling hashmaps&#10;+ improving logics&#10;- ending handling" />
     <MESSAGE value="+ improving logics&#10;+ supplemented lang classes&#10;+ English and ukrainian are ready" />
     <MESSAGE value="+ improving logics&#10;+ console call decomposed&#10;+ German is ready" />
-    <option name="LAST_COMMIT_MESSAGE" value="+ improving logics&#10;+ console call decomposed&#10;+ German is ready" />
+    <MESSAGE value="+ improving logics&#10;+ decomposed main class" />
+    <option name="LAST_COMMIT_MESSAGE" value="+ improving logics&#10;+ decomposed main class" />
   </component>
 </project>
